@@ -1,4 +1,3 @@
-import React from "react";
 import { Jobscategory } from "../utils/JobCategory";
 import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { IoBagAddOutline } from "react-icons/io5";

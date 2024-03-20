@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Button,
@@ -10,10 +9,8 @@ import {
   MenuItem,
   MenuList,
   Text,
-  extendTheme,
   useBreakpointValue,
 } from "@chakra-ui/react";
-
 
 import {
   AddIcon,
@@ -23,6 +20,7 @@ import {
   RepeatIcon,
 } from "@chakra-ui/icons";
 import JobCategory from "../components/JobCategory";
+import { InitialFocus } from "../components/JoPostModal";
 const Home = () => {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   return (
@@ -78,17 +76,7 @@ const Home = () => {
               </ul>
             )}
             {/* Find Jobs Button */}
-            <Button
-              background={"#F27405"}
-              variant="solid"
-              fontSize="1.3rem"
-              color={"#fff"}
-              p={{ md: "1.8rem 4.5rem", base: "1.5rem 2rem" }}
-              _hover={{ background: "#EE9342" }}
-              borderRadius={"20px"}
-            >
-              Post Jobs
-            </Button>
+            <InitialFocus />
           </nav>
           <Center display={"flex"} flexDirection={"column"}>
             <Box
