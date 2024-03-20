@@ -19,7 +19,7 @@ import {
 import React, { useState } from "react";
 import { MdOutlineAdd } from "react-icons/md";
 import { HStack } from "@chakra-ui/react";
-import { RxCrossCircled } from "react-icons/rx";
+
 import Skills from "./skills/Skills";
 
 export function InitialFocus() {
@@ -146,8 +146,8 @@ export function InitialFocus() {
               </HStack>
             </FormControl>
             <Flex flexWrap={"wrap"} gap={"1rem"}>
-              {skills.map((ele, index) => (
-                <Skills key={index} onChange={onChange} />
+              {skills.map((ele) => (
+                <Skills key={ele.name} onChange={onChange} />
               ))}
             </Flex>
           </ModalBody>
