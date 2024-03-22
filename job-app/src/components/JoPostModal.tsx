@@ -19,7 +19,7 @@ import {
 import React, { useState } from "react";
 import { MdOutlineAdd } from "react-icons/md";
 import { HStack } from "@chakra-ui/react";
-
+import { Jobscategory } from "../utils/JobCategory";
 import Skills from "./skills/Skills";
 
 export function InitialFocus() {
@@ -57,7 +57,7 @@ export function InitialFocus() {
       >
         <ModalOverlay />
         <ModalContent maxW={"80vw"} w={{ sm: "80vw", lg: "50vw" }}>
-          <ModalHeader fontSize={"2rem"}>Job Details</ModalHeader>
+          <ModalHeader fontSize={"2.5rem"}>Job Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody
             pb={6}
@@ -68,67 +68,77 @@ export function InitialFocus() {
             gap={"1rem"}
           >
             <FormControl>
-              <FormLabel fontSize={"1.2rem"}>Job Title</FormLabel>
-              <Input ref={initialRef} placeholder="First name" p={"1.5rem"} />
+              <FormLabel fontSize={"1.5rem"}>Job Title</FormLabel>
+              <Input fontSize={"1.2rem"} ref={initialRef} placeholder="title" p={"1.5rem"}/>
             </FormControl>
             <Flex gap={"1rem"}>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Department</FormLabel>
-                <Select placeholder="department" size="lg" />
+                <FormLabel fontSize={"1.5rem"}>Department</FormLabel>
+                <Select placeholder="department" size="lg" fontSize={"1.2rem"}>
+                  {Jobscategory.map((ele) => (
+                    <option value="" key={ele.id}>
+                      {ele.title}
+                    </option>
+                  ))}
+                </Select>
               </FormControl>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Job Type</FormLabel>
-                <Select placeholder="job type" size="lg" />
+                <FormLabel fontSize={"1.5rem"}>Job Type</FormLabel>
+                <Select placeholder="job type" size="lg" fontSize={"1.2rem"}>
+                  <option>Full time</option>
+                  <option>Part time</option>
+                  <option>Internship</option>
+                </Select>
               </FormControl>
             </Flex>
             <Flex gap={"1rem"}>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Recruitment Quota</FormLabel>
-                <Input placeholder={"100"} p={"1.5rem"} />
+                <FormLabel fontSize={"1.5rem"}>Recruitment Quota</FormLabel>
+                <Input placeholder={"100"} p={"1.5rem"} fontSize={"1.2rem"}/>
               </FormControl>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Recruitment Period</FormLabel>
+                <FormLabel fontSize={"1.5rem"}>Recruitment Period</FormLabel>
                 <input
                   type="date"
                   placeholder="Select date"
                   className="p-[0.5rem] w-[100%]"
-                  style={{ border: "0.5px solid #EAE7E7" }}
+                  style={{ border: "0.5px solid #EAE7E7",fontSize:"1.2rem" }}
                 />
               </FormControl>
             </Flex>
             <Flex gap={"1rem"}>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Expected Salary</FormLabel>
-                <Input placeholder={"100"} p={"1.5rem"} />
+                <FormLabel fontSize={"1.5rem"}>Expected Salary</FormLabel>
+                <Input placeholder={"in lakhs"} p={"1.5rem"} fontSize={"1.2rem"} />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Experience in Years</FormLabel>
+                <FormLabel fontSize={"1.5rem"}>Experience in Years</FormLabel>
                 <input
-                  type="date"
+                  type="text"
                   placeholder="Select date"
                   className="p-[0.5rem] w-[100%]"
-                  style={{ border: "0.5px solid #EAE7E7" }}
+                  style={{ border: "0.5px solid #EAE7E7",fontSize:"1.2rem" }}
                 />
               </FormControl>
             </Flex>
             <Flex gap={"1rem"}>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>Location</FormLabel>
-                <Input placeholder={"location"} p={"1.5rem"} />
+                <FormLabel fontSize={"1.5rem"}>Location</FormLabel>
+                <Input placeholder={"location"} p={"1.5rem"} fontSize={"1.2rem"}/>
               </FormControl>
               <FormControl>
-                <FormLabel fontSize={"1.2rem"}>
+                <FormLabel fontSize={"1.5rem"}>
                   Hiring Managers (Optional)
                 </FormLabel>
                 <input
                   placeholder="Select Manager"
                   className="p-[0.7rem] w-[100%]"
-                  style={{ border: "0.5px solid #EAE7E7" }}
+                  style={{ border: "0.5px solid #EAE7E7",fontSize:"1.2rem" }}
                 />
               </FormControl>
             </Flex>
             <FormControl>
-              <FormLabel fontSize={"1.2rem"}>Skill Sets</FormLabel>
+              <FormLabel fontSize={"1.5rem"}>Skill Sets</FormLabel>
               <HStack onClick={AddNewSkill} cursor={"pointer"}>
                 <Box
                   background={"#03A63C"}
@@ -153,10 +163,10 @@ export function InitialFocus() {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
+            <Button colorScheme="blue" mr={3} size='lg'>
               Save
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button onClick={onClose} size={"lg"}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
