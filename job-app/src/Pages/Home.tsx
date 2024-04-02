@@ -10,6 +10,7 @@ import {
   MenuList,
   Text,
   useBreakpointValue,
+  useToast,
 } from "@chakra-ui/react";
 
 import {
@@ -21,8 +22,21 @@ import {
 } from "@chakra-ui/icons";
 import JobCategory from "../components/JobCategory";
 import { InitialFocus } from "../components/JoPostModal";
+import { useState } from "react";
 const Home = () => {
+  const toast = useToast();
+  const [alert, setShowalert] = useState(false);
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
+  if (alert) {
+    toast({
+      position: "top-right",
+      title: "Job Posted Successfully",
+      description: "On applying by a candidates you will get a notification",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+  }
   return (
     <div>
       <Box className="bg-[#211CA6]">
@@ -76,7 +90,7 @@ const Home = () => {
               </ul>
             )}
             {/* Find Jobs Button */}
-            <InitialFocus />
+            <InitialFocus setShowalert={setShowalert} />
           </nav>
           <Center display={"flex"} flexDirection={"column"}>
             <Box
